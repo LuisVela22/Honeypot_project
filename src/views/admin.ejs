@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel Admin</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .info {
+            background: #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .users-list {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .users-list th, .users-list td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .users-list th {
+            background: #111827;
+            color: white;
+        }
+
+        button {
+            background: #dc2626;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #b91c1c;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Panel de administrador</h1>
+
+    <div class="info">
+        <h3>Hola <%= user.email %></h3>
+        <p>Tu rol es: <strong><%= user.role %></strong></p>
+    </div>
+
+    <h2>Usuarios registrados</h2>
+
+    <table class="users-list">
+        <tr>
+            <th>Email</th>
+            <th>Rol</th>
+        </tr>
+
+        <% users.forEach(u => { %>
+            <tr>
+                <td><%= u.email %></td>
+                <td><%= u.role %></td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <form action="/logout" method="POST">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+</div>
+
+</body>
+</html>
