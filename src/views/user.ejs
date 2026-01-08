@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel Usuario</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .info {
+            background: #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #dc2626;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #b91c1c;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Panel de usuario</h1>
+
+    <div class="info">
+        <h3>Hola <%= user.email %></h3>
+        <p>Tu rol es: <strong><%= user.role %></strong></p>
+    </div>
+
+    <form action="/logout" method="POST">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+</div>
+
+</body>
+</html>
